@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private Auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -16,9 +17,10 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
     const username = event.target.querySelector('#username').value;
     const password = event.target.querySelector('#password').value;
-    this.Auth.getUserDetails(username, password).subscribe(data => {
-      if(data.success) {
-
+    this.auth.getUserDetails(username, password).subscribe(data => {
+      if (data.success) {
+        this.router.navigate(['admin']);
+        this.auth.setLoggedIn(data.success);
       } else {
         window.alert(data.secret);
       }
