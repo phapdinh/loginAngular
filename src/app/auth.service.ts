@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Data } from './types';
 
-interface Data {
-  success: boolean;
-  secret: string;
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +9,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  loggedInStatus = false;
+  private loggedInStatus = false;
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value;

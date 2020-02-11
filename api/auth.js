@@ -15,14 +15,21 @@ app.post('/api/auth', (req, res) => {
     if(username === 'admin' && password === 'admin') {
         res.json({
             success: true,
-            secret: 'This is the secret no one knows but the admin'
+            message: 'This is the secret no one knows but the admin'
         });
     } else {
         res.json({
             success: false,
-            secret: 'Invalid credentials'
+            message: 'Invalid credentials'
         });
     }
+})
+
+app.get('/api/data', (req, res) => {
+    res.json({
+        success: true,
+        message: 'TOP SECRET MESSAGE'
+    })
 })
 
 app.listen(7000, () => {

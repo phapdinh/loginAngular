@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['admin']);
         this.auth.setLoggedIn(data.success);
       } else {
-        window.alert(data.secret);
+        window.alert(data.message);
       }
     });
     console.log('username', username, 'password', password);
