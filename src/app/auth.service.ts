@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   getUserDetails(username: string, password: string) {
-    return this.http.post<Data>('/api/auth', {
+    return this.http.post<Data>('http://localhost:7000/api/auth', {
       username,
       password
     });

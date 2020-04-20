@@ -10,6 +10,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getSomeData() {
-    return this.http.get<Data>('/api/data');
+    return this.http.get<Data>('http://localhost:7000/api/data');
   }
 }
