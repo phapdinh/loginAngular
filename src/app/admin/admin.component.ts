@@ -12,6 +12,10 @@ export class AdminComponent implements OnInit {
 
   constructor(private user: UserService) { }
 
+  handleClick = () => {
+    alert('button clicked');
+  }
+
   ngOnInit() {
     this.user.getSomeData().subscribe(data => {
       setTimeout(() => {

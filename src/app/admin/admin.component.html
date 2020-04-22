@@ -1,2 +1,2 @@
 <p>{{message}}</p>
-<p-button label="Click" *ngIf="message !== 'Loading...'"></p-button>
+<p-button label="Click" *ngIf="message !== 'Loading...'" (onClick)="handleClick()"></p-button>
